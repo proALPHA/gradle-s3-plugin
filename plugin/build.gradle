@@ -1,0 +1,35 @@
+plugins {
+    id 'com.gradle.plugin-publish' version '1.2.1'
+    id 'groovy'
+}
+
+sourceCompatibility = '21'
+targetCompatibility = '8'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    api group: 'software.amazon.awssdk', name: 's3', version: '2.26.30'
+    runtimeOnly group: 'software.amazon.awssdk', name: 'sso', version: '2.26.30'
+    runtimeOnly group: 'software.amazon.awssdk', name: 'ssooidc', version: '2.26.30'
+    runtimeOnly group: 'software.amazon.awssdk', name: 'sts', version: '2.26.30'
+}
+
+group 'com.proalpha'
+version '1.0.0'
+
+gradlePlugin {
+    website = 'https://github.com/proALPHA/gradle-s3-plugin/blob/main/README.md'
+    vcsUrl = 'https://github.com/proALPHA/gradle-s3-plugin'
+    plugins {
+        s3 {
+            id = 'com.proalpha.s3'
+            displayName = 'Gradle S3 Plugin'
+            description = 'Gradle plugin to add tasks to provide s3 functionality.'
+            tags.set(['aws', 's3'])
+            implementationClass = 'com.proalpha.s3.S3Plugin'
+        }
+    }
+}
