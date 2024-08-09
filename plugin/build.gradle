@@ -17,7 +17,7 @@ dependencies {
     runtimeOnly group: 'software.amazon.awssdk', name: 'sts', version: '2.26.30'
 }
 
-group 'com.proalpha'
+group 'com.proalpha.s3'
 version '1.0.0'
 
 gradlePlugin {
